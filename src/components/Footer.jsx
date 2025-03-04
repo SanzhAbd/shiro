@@ -9,14 +9,12 @@ import Linkedin from '../assets/Linkedin.png';
 const Footer = () => {
   const [isLanguageListOpen, setIsLanguageListOpen] = useState(false);
 
-  const languages = ['English', 'Spanish', 'French', 'German']; // Список языков
+  const languages = ['English', 'Spanish', 'French', 'German']; 
 
   return (
     <section className="bg-[#043873] py-16">
       <div className="container mx-auto px-30">
-        {/* Основной контейнер для 5 столбцов */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
-          {/* Первый столбец: Логотип и текст */}
           <div className="flex flex-col space-y-4">
             <img src={logo} alt="Whitepace Logo" className="h-6 w-35" />
             <p className="text-white text-xs font-thin">
@@ -25,7 +23,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Второй столбец: Product */}
           <div className="flex flex-col space-y-4">
             <h3 className="text-white font-bold">Product</h3>
             <ul className="text-white text-xs font-thin space-y-2">
@@ -41,7 +38,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Третий столбец: Resources */}
           <div className="flex flex-col space-y-4">
             <h3 className="text-white font-bold">Resources</h3>
             <ul className="text-white text-xs font-thin space-y-2">
@@ -57,7 +53,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Четвертый столбец: Company */}
           <div className="flex flex-col space-y-4">
             <h2 className="text-white font-sm font-bold">Company</h2>
             <ul className="text-white space-y-2 text-xs font-thin">
@@ -73,7 +68,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Пятый столбец: Try It Today */}
           <div className="flex flex-col space-y-4">
             <h3 className="text-white font-bold">Try It Today</h3>
             <p className="text-white text-xs font-thin">
@@ -86,10 +80,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Полоска цвета #2E4E73 */}
         <div className="h-px bg-[#2E4E73] my-8"></div>
 
-        {/* Строка с текстом и иконками */}
         <div className="flex flex-col md:flex-row justify-between items-center text-white text-xs font-light space-y-4 md:space-y-0">
           <div className="flex items-center space-x-10">
             <div
@@ -107,7 +99,6 @@ const Footer = () => {
                 }`}
               />
 
-              {/* Выпадающий список языков */}
               {isLanguageListOpen && (
                 <div className="absolute bottom-6 left-0 bg-white text-[#043873] rounded-lg shadow-md p-2 z-10">
                   <ul className="space-y-2">
