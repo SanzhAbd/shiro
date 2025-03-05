@@ -1,5 +1,7 @@
 import React from 'react';
 import underline from '../assets/underline.svg'; 
+import needsImage from '../assets/Needs.jpg';
+
 
 
 const Needs = () => {
@@ -7,7 +9,12 @@ const Needs = () => {
     <section className="bg-white py-16 relative overflow-hidden">
       <div className="container mx-auto px-30 flex items-center pb-10">
         <div className="w-1/2 relative h-[400px] flex justify-center items-center">
-          <div className="w-[480px] h-[340px] bg-[#C4DEFD] p-8">
+          <div className="w-[480px] h-[340px]">
+          <img
+            src={needsImage} 
+            alt="Extension"
+            className="w-full h-full object-cover rounded-lg"
+          />
           </div>
         </div>
 

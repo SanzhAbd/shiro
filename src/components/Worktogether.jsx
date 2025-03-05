@@ -79,7 +79,7 @@ const WorkTogether = () => {
             With whitespace, share your notes with your colleagues and collaborate on them.  
             You can also publish a note to the internet and share the URL with others.
           </p>
-          <button className="bg-[#4F9CF9] text-white px-8 py-3 rounded-sm hover:bg-[#3a7bd5] transition text-[12px]">
+          <button className="bg-[#4F9CF9] text-white px-6 py-3 rounded-sm hover:bg-[#3a7bd5] transition text-[12px]">
             Try it now →
           </button>
         </div>

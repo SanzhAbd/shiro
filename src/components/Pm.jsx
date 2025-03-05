@@ -1,6 +1,7 @@
 import React from 'react';
 import wmVector from '../assets/wm-vector.svg';
 import underline from '../assets/underline.svg';
+import pmImage from '../assets/pm.jpg';
 
 const Pm = () => {
   return (
@@ -30,7 +31,13 @@ const Pm = () => {
           </button>
         </div>
 
-        <div className="w-[500px] h-[350px] bg-[#C4DEFD]"></div>
+        <div className="w-[500px] h-[350px] overflow-hidden">
+          <img
+            src={pmImage}
+            alt="Project Management"
+            className="w-full h-full object-cover rounded-lg" 
+          />
+        </div>
       </div>
     </section>
   );

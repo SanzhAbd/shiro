@@ -1,5 +1,6 @@
 import React from 'react';
 import heroVector from '../assets/hero-vector.svg';
+import heroImage from '../assets/hero.jpg';
 
 const Hero = () => {
   return (
@@ -19,13 +20,18 @@ const Hero = () => {
             Project management software that enables your teams to collaborate, plan, analyze, and manage everyday tasks.
           </p>
           <button
-            className="bg-[#4F9CF9] text-white px-3 py-3 rounded-sm hover:bg-[#3a7bd5] transition flex items-center justify-center text-[12px] h-10 w-39 space-x-1"
+            className="bg-[#4F9CF9] text-white px-3 py-3 rounded-sm hover:bg-[#3a7bd5] transition flex items-center justify-center text-[12px] h-10 w-43 space-x-1"
           >
             Try Whitespace free →
           </button>
         </div>
 
-        <div className="w-[624px] h-[350px] bg-[#C4DEFD] p-8">
+        <div className="w-[624px] h-[350px] overflow-hidden">
+          <img
+            src={heroImage}
+            alt="Hero"
+            className="w-full h-full object-cover rounded-lg" 
+          />
         </div>
       </div>
     </section>

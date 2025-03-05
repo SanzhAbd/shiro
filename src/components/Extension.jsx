@@ -1,5 +1,6 @@
 import React from 'react';
 import underline from '../assets/underline.svg'; 
+import extensionImage from '../assets/Extension.jpg';
 
 
 const Extension = () => {
@@ -30,7 +31,12 @@ const Extension = () => {
         </button>
       </div>
 
-      <div className="w-[450px] h-[300px] bg-[#C4DEFD] p-8">
+      <div className="w-[450px] h-[300px]">
+      <img
+            src={extensionImage}
+            alt="Extension"
+            className="w-full h-full object-cover rounded-lg"
+          />
       </div>
     </div>
   </section>

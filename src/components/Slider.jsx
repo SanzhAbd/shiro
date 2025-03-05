@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import Quote from '../assets/Quote.png';
@@ -9,6 +9,7 @@ import underline from '../assets/underline.svg';
 
 const Slider = () => {
   const splideRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const clientCards = [
     {
@@ -60,6 +61,20 @@ const Slider = () => {
     }
   };
 
+  const getCardColor = (index) => {
+    const splide = splideRef.current?.splide;
+    if (!splide) return 'white';
+
+    const slideIndex = splide.Components.Controller.toIndex(index);
+    const activeSlide = splide.Components.Controller.getIndex();
+    const diff = Math.abs(slideIndex - activeSlide);
+
+    // Центральная карточка
+    if (diff === 0) return '#4F9CF9';
+    // Боковые карточки
+    return 'white';
+  };
+
   return (
     <section className="bg-white py-16">
       <div className="container mx-auto px-40">
@@ -84,30 +99,41 @@ const Slider = () => {
             gap: '1rem',
             pagination: false,
             arrows: false,
+            focus: 'center',
+            updateOnMove: true,
             breakpoints: {
               640: { perPage: 1 },
               768: { perPage: 2 },
             },
           }}
+          onMoved={(splide) => setActiveIndex(splide.index)}
         >
           {clientCards.map((card, index) => (
             <SplideSlide key={card.id}>
               <div
-                className={`p-6 rounded-lg min-h-[320px] flex flex-col justify-between ${
-                  index % 2 === 0 ? 'bg-white shadow-md' : 'bg-[#4F9CF9] text-white'
+                className={`p-6 rounded-lg min-h-[320px] flex flex-col justify-between transition-colors duration-300 ${
+                  getCardColor(index) === '#4F9CF9'
+                    ? 'bg-[#4F9CF9] text-white'
+                    : 'bg-white shadow-md'
                 }`}
               >
                 <img
                   src={Quote}
                   alt="Quote"
                   className={`w-14 h-10 mb-4 mt-4 ${
-                    index % 2 !== 0 ? 'filter brightness-0 invert' : ''
+                    getCardColor(index) === '#4F9CF9'
+                      ? 'filter brightness-0 invert'
+                      : ''
                   }`}
                 />
-                <p className={`mb-4 text-xs ${index % 2 === 0 ? 'text-gray-700' : 'text-white'}`}>
+                <p className={`mb-4 text-xs ${
+                  getCardColor(index) === '#4F9CF9' ? 'text-white' : 'text-gray-700'
+                }`}>
                   {card.text}
                 </p>
-                <div className={`h-px w-full mb-4 ${index % 2 === 0 ? 'bg-gray-300' : 'bg-white'}`} />
+                <div className={`h-px w-full mb-4 ${
+                  getCardColor(index) === '#4F9CF9' ? 'bg-white' : 'bg-gray-300'
+                }`} />
                 <div className="flex items-center">
                   <img
                     src={card.avatar}
@@ -116,7 +142,9 @@ const Slider = () => {
                   />
                   <div>
                     <h3 className="text-lg text-[#212529]">{card.name}</h3>
-                    <p className={`text-xs font-thin ${index % 2 === 0 ? 'text-gray-500' : 'text-white'}`}>
+                    <p className={`text-xs font-thin ${
+                      getCardColor(index) === '#4F9CF9' ? 'text-white' : 'text-gray-500'
+                    }`}>
                       {card.role}
                     </p>
                   </div>
@@ -126,6 +154,7 @@ const Slider = () => {
           ))}
         </Splide>
 
+        {/* Стрелки управления */}
         <div className="flex justify-center gap-4 mt-8">
           <button
             onClick={handlePrev}
@@ -137,7 +166,7 @@ const Slider = () => {
               height="10"
               viewBox="0 0 12 20"
               fill="none"
-ё            >
+            >
               <path
                 d="M10 2L2 10L10 18"
                 stroke="white"
